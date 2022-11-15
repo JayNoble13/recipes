@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <title>Edit Recipe</title>
+</head>
+<body>
+    <div id="frame">
+        <div id="header">
+            <h1 class="title">Edit Recipe</h1>
+        </div>
+        <div class="nav">
+                <a href="/home">Home</a>
+                <a href="/logout">Logout</a>
+        </div>
+        <div id="mainbox">
+            <form action="/update" method ='post'>
+                <div id="form">
+                    <label for="name">Name:</label>
+                    <input type="text" name="name" value="{{recipe.name}}">
+                    <label for="description">Description:</label>
+                    <textarea type="text" name="description">{{recipe.description}}</textarea>
+                    <label for="instruction">Instructions:</label>
+                    <textarea type="text" name="instruction">{{recipe.instruction}}</textarea>
+                </div>
+                <div>
+                    <div>
+                        <label for="date_made">Date Made On:</label>
+                        <input type="date" id="date_made" value={{recipe.date_made}}>
+                    </div>
+                    <label for="time">Under 30 Minutes?</label>
+                    <input type="radio" id="yes" name="time">Yes</label>
+                    <input type="radio" id="no" name="time">No</label>
+                </div>
+                <button>UPDATE</button>
+            </form>
+    </div>
+</body>
+</html>
